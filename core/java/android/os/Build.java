@@ -718,7 +718,6 @@ public class Build {
      */
     public static boolean isBuildConsistent() {
         final String system = SystemProperties.get("ro.build.fingerprint");
-        final String vendor = SystemProperties.get("ro.vendor.build.fingerprint");
         final String bootimage = SystemProperties.get("ro.bootimage.build.fingerprint");
         final String requiredBootloader = SystemProperties.get("ro.build.expect.bootloader");
         final String currentBootloader = SystemProperties.get("ro.bootloader");
@@ -728,14 +727,6 @@ public class Build {
         if (TextUtils.isEmpty(system)) {
             Slog.e(TAG, "Required ro.build.fingerprint is empty!");
             return false;
-        }
-
-        if (!TextUtils.isEmpty(vendor)) {
-            if (!Objects.equals(system, vendor)) {
-                Slog.e(TAG, "Mismatched fingerprints; system reported " + system
-                        + " but vendor reported " + vendor);
-                return false;
-            }
         }
 
         /* TODO: Figure out issue with checks failing
