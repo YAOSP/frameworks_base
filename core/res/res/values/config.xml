@@ -2368,17 +2368,4 @@
          automatically try to pair with it when the device exits tablet mode. -->
     <string translatable="false" name="config_packagedKeyboardName"></string>
 
-    <!-- Disable stock OTA components if installed -->
-    <string-array name="config_disabledComponents" translatable="false">
-        <item>com.google.android.gsf/com.google.android.gsf.update.SystemUpdateActivity</item>
-        <item>com.google.android.gsf/com.google.android.gsf.update.SystemUpdateService</item>
-        <item>com.google.android.gsf/com.google.android.gsf.update.SystemUpdateService$Receiver</item>
-        <item>com.google.android.gsf/com.google.android.gsf.update.SystemUpdateService$SecretCodeReceiver</item>
-        <item>com.google.android.gms/com.google.android.gms.update.SystemUpdateActivity</item>
-        <item>com.google.android.gms/com.google.android.gms.update.SystemUpdateService</item>
-        <item>com.google.android.gms/com.google.android.gms.update.SystemUpdateService$Receiver</item>
-        <item>com.google.android.gms/com.google.android.gms.update.SystemUpdateService$ActiveReceiver</item>
-        <item>com.google.android.gms/com.google.android.gms.update.SystemUpdateService$SecretCodeReceiver</item>
-    </string-array>
-
 </resources>
