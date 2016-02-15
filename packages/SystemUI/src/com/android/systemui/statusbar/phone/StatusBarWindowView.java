@@ -71,6 +71,8 @@ public class StatusBarWindowView extends FrameLayout {
 
     private int mStatusBarHeaderHeight;
 
+    private boolean mDozeWakeupDoubleTap;
+    private GestureDetector mDozeWakeupDoubleTapGesture;
     private Handler mHandler = new Handler();
     private SettingsObserver mSettingsObserver;
 
@@ -164,6 +166,15 @@ public class StatusBarWindowView extends FrameLayout {
 
         mSettingsObserver.observe();
 
+        mDozeWakeupDoubleTapGesture = new GestureDetector(mContext,
+                new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                mService.wakeUpIfDozing(e.getEventTime(), e);
+                return true;
+            }
+        });
+
         // We really need to be able to animate while window animations are going on
         // so that activities may be started asynchronously from panel animations
         final ViewRootImpl root = getViewRootImpl();
@@ -244,10 +255,16 @@ public class StatusBarWindowView extends FrameLayout {
                 && mStackScrollLayout.getVisibility() == View.VISIBLE
                 && mService.getBarState() == StatusBarState.KEYGUARD
                 && !mService.isBouncerShowing()) {
-            intercept = mDragDownHelper.onInterceptTouchEvent(ev);
+            if (!mDozeWakeupDoubleTap || (mDozeWakeupDoubleTap && !mService.isDozing())) {
+                intercept = mDragDownHelper.onInterceptTouchEvent(ev);
+            }
             // wake up on a touch down event, if dozing
-            if (ev.getActionMasked() == MotionEvent.ACTION_DOWN) {
-                mService.wakeUpIfDozing(ev.getEventTime(), ev);
+            if (mDozeWakeupDoubleTap) {
+                mDozeWakeupDoubleTapGesture.onTouchEvent(ev);
+            } else {
+                if (ev.getActionMasked() == MotionEvent.ACTION_DOWN) {
+                    mService.wakeUpIfDozing(ev.getEventTime(), ev);
+                }
             }
         }
         if (!intercept) {
@@ -342,8 +359,8 @@ public class StatusBarWindowView extends FrameLayout {
 
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
-//            resolver.registerContentObserver(Settings.System.getUriFor(
-//                    Settings.System.DOUBLE_TAP_SLEEP_GESTURE), false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DOZE_WAKEUP_DOUBLETAP), false, this, UserHandle.USER_ALL);
             update();
         }
 
@@ -364,8 +381,8 @@ public class StatusBarWindowView extends FrameLayout {
 
         public void update() {
             ContentResolver resolver = mContext.getContentResolver();
-//            mDoubleTapToSleepEnabled = Settings.System.getIntForUser(resolver,
-//                    Settings.System.DOUBLE_TAP_SLEEP_GESTURE, 1, UserHandle.USER_CURRENT) == 1;
+            mDozeWakeupDoubleTap = Settings.System.getIntForUser(resolver,
+                    Settings.System.DOZE_WAKEUP_DOUBLETAP, 0, UserHandle.USER_CURRENT) == 1;
         }
     }
 }
