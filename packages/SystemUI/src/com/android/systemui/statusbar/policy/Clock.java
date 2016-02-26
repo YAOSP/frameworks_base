@@ -83,6 +83,7 @@ public class Clock extends TextView implements DemoMode {
 
     protected int mClockDateDisplay = CLOCK_DATE_DISPLAY_GONE;
     protected int mClockDateStyle = CLOCK_DATE_STYLE_REGULAR;
+    protected int mClockDatePosition = STYLE_DATE_LEFT;
     protected int mClockStyle = STYLE_CLOCK_RIGHT;
     protected int mclockColor;
     protected boolean mShowClock;
@@ -277,9 +278,6 @@ public class Clock extends TextView implements DemoMode {
         String timeResult = sdf.format(mCalendar.getTime());
         String dateResult = "";
 
-        int clockDatePosition = Settings.System.getInt(getContext().getContentResolver(),
-            Settings.System.STATUSBAR_CLOCK_DATE_POSITION, 0);
-
         if (mClockDateDisplay != CLOCK_DATE_DISPLAY_GONE) {
             Date now = new Date();
 
@@ -299,7 +297,7 @@ public class Clock extends TextView implements DemoMode {
             } else {
                 dateResult = dateString.toString();
             }
-            result = (clockDatePosition == STYLE_DATE_LEFT) ?
+            result = (mClockDatePosition == STYLE_DATE_LEFT) ?
                     dateResult + " " + timeResult : timeResult + " " + dateResult;
         } else {
             // No date, just show time
@@ -312,7 +310,7 @@ public class Clock extends TextView implements DemoMode {
             if (dateString != null) {
                 int dateStringLen = dateString.length();
                 int timeStringOffset =
-                        (clockDatePosition == STYLE_DATE_RIGHT) ?
+                        (mClockDatePosition == STYLE_DATE_RIGHT) ?
                         timeResult.length() + 1 : 0;
                 if (mClockDateDisplay == CLOCK_DATE_DISPLAY_GONE) {
                     formatted.delete(0, dateStringLen);
@@ -369,6 +367,9 @@ public class Clock extends TextView implements DemoMode {
                 UserHandle.USER_CURRENT);
         mClockDateStyle = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUSBAR_CLOCK_DATE_STYLE, CLOCK_DATE_STYLE_REGULAR,
+                UserHandle.USER_CURRENT);
+        mClockDatePosition = Settings.System.getIntForUser(resolver,
+                Settings.System.STATUSBAR_CLOCK_DATE_POSITION, STYLE_DATE_LEFT,
                 UserHandle.USER_CURRENT);
 
         int defaultColor = getResources().getColor(R.color.status_bar_clock_color);
