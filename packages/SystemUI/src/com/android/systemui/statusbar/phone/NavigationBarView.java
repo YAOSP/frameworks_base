@@ -638,10 +638,7 @@ public class NavigationBarView extends LinearLayout {
 
         KeyButtonView v = new KeyButtonView(mContext, null);
         v.setClickAction(clickAction);
-        if (!clickAction.equals(ActionConstants.ACTION_HOME)) {
-            // Don't touch long press listener for longpress Home button
-            v.setLongpressAction(longpress);
-        }
+        v.setLongpressAction(longpress);
         int i = mContext.getResources().getDimensionPixelSize(R.dimen.navigation_key_width);
         v.setLayoutParams(getLayoutParams(landscape, i));
 
