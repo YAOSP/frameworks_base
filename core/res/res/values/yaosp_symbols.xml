@@ -82,4 +82,7 @@
   <!-- BatteryLED fast charge -->
   <java-symbol type="integer" name="config_chargingFastThreshold" />
 
+  <!-- lockscreen Wallpaper -->
+  <java-symbol type="anim" name="lock_screen_wallpaper_exit_noop" />
+
 </resources>
