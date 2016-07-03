@@ -36,4 +36,9 @@
     <string name="reboot_system" product="tablet">Redémarrer la tablette</string>
     <string name="reboot_system" product="default">Redémarrer le téléphone</string>
 
+    <!-- Lockscreen Wallpaper Permission Title -->
+    <string name="permlab_setKeyguardWallpaper">définir le fond d\'écran de l\'écran de veille</string>
+    <!-- Lockscreen Wallpaper Permission Description -->
+    <string name="permdesc_setKeyguardWallpaper">Permets à une application de changer le fond d\'écran de l\'écran de veille.</string>
+
 </resources>
