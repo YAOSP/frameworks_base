@@ -22,16 +22,20 @@ import android.app.AlarmManager.AlarmClockInfo;
 import android.app.IUserSwitchObserver;
 import android.app.StatusBarManager;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.UserInfo;
+import android.database.ContentObserver;
 import android.media.AudioManager;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.IRemoteCallback;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.telecom.TelecomManager;
 import android.util.Log;
@@ -83,6 +87,10 @@ public class PhoneStatusBarPolicy implements Callback {
     private boolean mZenVisible;
     private boolean mVolumeVisible;
     private boolean mCurrentUserSetup;
+
+    private Handler mSettingsHandler = new Handler();
+    private SettingsObserver mSettingsObserver;
+    boolean mShowSuIcon = false;
 
     private int mZen;
 
@@ -182,12 +190,15 @@ public class PhoneStatusBarPolicy implements Callback {
         // su
         mService.setIcon(SLOT_SU, R.drawable.stat_sys_su, 0, null);
         mService.setIconVisibility(SLOT_SU, false);
-        mSuController.addCallback(mSuCallback);
 
         // managed profile
         mService.setIcon(SLOT_MANAGED_PROFILE, R.drawable.stat_sys_managed_profile_status, 0,
                 mContext.getString(R.string.accessibility_managed_profile));
         mService.setIconVisibility(SLOT_MANAGED_PROFILE, false);
+
+        // Listen for usersettings changes
+        mSettingsObserver = new SettingsObserver(mSettingsHandler);
+        mSettingsObserver.observe();
     }
 
     public void setZenMode(int zen) {
@@ -414,7 +425,8 @@ public class PhoneStatusBarPolicy implements Callback {
     };
 
     private void updateSu() {
-        mService.setIconVisibility(SLOT_SU, mSuController.hasActiveSessions());
+        mService.setIconVisibility(SLOT_SU,
+                mShowSuIcon ? mSuController.hasActiveSessions() : false);
     }
 
     private final CastController.Callback mCastCallback = new CastController.Callback() {
@@ -445,5 +457,43 @@ public class PhoneStatusBarPolicy implements Callback {
             updateSu();
         }
     };
+
+    /**
+     * Settingsobserver to take care of the user settings.
+     */
+    private class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.SHOW_SU_STATUSBAR_ICON),
+                    false, this, UserHandle.USER_ALL);
+            update();
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            super.onChange(selfChange);
+            update();
+        }
+
+        public void update() {
+            ContentResolver resolver = mContext.getContentResolver();
+            boolean mNewShowSuIcon = Settings.System.getIntForUser(resolver,
+                    Settings.System.SHOW_SU_STATUSBAR_ICON, 1, UserHandle.USER_CURRENT) == 1;
+            if (mShowSuIcon != mNewShowSuIcon) {
+                mShowSuIcon = mNewShowSuIcon;
+                if (mShowSuIcon) {
+                    mSuController.addCallback(mSuCallback);
+                } else {
+                    mSuController.removeCallback(mSuCallback);
+                }
+                updateSu();
+            }
+        }
+    }
 
 }
