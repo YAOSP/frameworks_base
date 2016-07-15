@@ -4000,6 +4000,14 @@ public final class Settings {
         public static final String MENU_VISIBILITY = "menu_visibility";
 
         /**
+         * Whether to show the SU statusbar icon
+         * 0 = hide at all times
+         * 1 = show when active session (default)
+         * @hide
+         */
+        public static final String SHOW_SU_STATUSBAR_ICON = "show_su_statusbar_icon";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
