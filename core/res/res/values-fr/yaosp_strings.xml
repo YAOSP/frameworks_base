@@ -41,4 +41,83 @@
     <!-- Lockscreen Wallpaper Permission Description -->
     <string name="permdesc_setKeyguardWallpaper">Permets à une application de changer le fond d\'écran de l\'écran de veille.</string>
 
+    <!-- Appops -->
+    <string name="permission_remember_choice">Mémoriser</string>
+    <string name="permission">Permission</string>
+    <!-- App ops requests -->
+    <string name="app_ops_access_camera">accès à l\'appareil photo</string>
+    <string name="app_ops_access_location">accès à la localisation</string>
+    <string name="app_ops_access_notifications">lire vos notifications</string>
+    <string name="app_ops_activate_vpn">activer le VPN</string>
+    <string name="app_ops_auto_start">lancer au démarrage</string>
+    <string name="app_ops_delete_call_log">effacer votre historique d\'appel</string>
+    <string name="app_ops_delete_contacts">effacer vos contacts</string>
+    <string name="app_ops_delete_mms">effacer vos MMS</string>
+    <string name="app_ops_delete_sms">effacer vos SMS</string>
+    <string name="app_ops_draw_on_top">superposer une fenêtre</string>
+    <string name="app_ops_get_usage_stats">accès aux statistiques d\'utilisation de l\'app</string>
+    <string name="app_ops_keep_device_awake">garder l\'appareil éveillé</string>
+    <string name="app_ops_make_phone_call">passer un appel téléphonqie</string>
+    <string name="app_ops_modify_calendar">actualiser votre agenda</string>
+    <string name="app_ops_modify_call_log">actualiser l\'historique d\'appel</string>
+    <string name="app_ops_modify_clipboard">modifier le presse-papier</string>
+    <string name="app_ops_modify_contacts">actualiser vos contacts</string>
+    <string name="app_ops_modify_settings">actualiser les réglages système</string>
+    <string name="app_ops_mute_unmute_microphone">couper/activer le microphone</string>
+    <string name="app_ops_play_audio">jouer du son</string>
+    <string name="app_ops_post_notification">afficher une natification</string>
+    <string name="app_ops_project_media">projeter des fichiers médias</string>
+    <string name="app_ops_read_calendar">lire votre agenda</string>
+    <string name="app_ops_read_call_log">lire votre historique d\'appel</string>
+    <string name="app_ops_read_clipboard">lire le presse-papier</string>
+    <string name="app_ops_read_contacts">lire vos contacts</string>
+    <string name="app_ops_read_mms">lire vos MMS</string>
+    <string name="app_ops_read_sms">lire vos SMS</string>
+    <string name="app_ops_receive_sms">recevoir un SMS</string>
+    <string name="app_ops_record_audio">enregistrer du son</string>
+    <string name="app_ops_send_mms">envoyer un MMS</string>
+    <string name="app_ops_send_sms">envoyer un SMS</string>
+    <string name="app_ops_start_at_bootup">lancer au démarrage</string>
+    <string name="app_ops_toast_window">afficher les messages toast</string>
+    <string name="app_ops_toggle_bluetooth">activer/désactiver le Bluetooth</string>
+    <string name="app_ops_toggle_mobile_data">activer/désactiver les données mobiles</string>
+    <string name="app_ops_toggle_nfc">activer/désactiver le NFC</string>
+    <string name="app_ops_toggle_wifi">activer/désactiver le Wi-Fi</string>
+    <string name="app_ops_use_alarm_volume">contrôler le volume des alarmes</string>
+    <string name="app_ops_use_audio_focus">contrôler le focus audio</string>
+    <string name="app_ops_use_bluetooth_volume">contrôler le volume du Bluetooth</string>
+    <string name="app_ops_use_master_volume">contrôler le volume principal</string>
+    <string name="app_ops_use_media_buttons">utiliser les boutons de médias</string>
+    <string name="app_ops_use_media_volume">contrôler le volume des médias</string>
+    <string name="app_ops_use_notification_volume">contrôler le volume des notifications</string>
+    <string name="app_ops_use_ring_volume">contrôler le volume de la sonnerie</string>
+    <string name="app_ops_use_vibrate">utiliser le retour haptique</string>
+    <string name="app_ops_use_voice_volume">contrôler le volume d\'appels</string>
+    <string name="app_ops_write_mms">écrire un MMS</string>
+    <string name="app_ops_write_sms">écrire un SMS</string>
+    <string name="app_ops_use_fingerprint">utiliser les empreintes digitales</string>
+    <string name="app_ops_add_voicemail">ajouter un message vocal</string>
+    <string name="app_ops_read_phone_state">accéder à l\'état du téléphone</string>
+    <string name="app_ops_scan_wifi">rechercher les réseaux Wi-Fi</string>
+    <string name="app_ops_change_wallpaper">changer le fond d\'écran</string>
+    <string name="app_ops_assist_structure">utiliser l\'aide à la structure</string>
+    <string name="app_ops_assist_screenshot">prendre une capture d\'écran</string>
+    <string name="app_ops_use_body_sensors">utiliser les capteurs corporels</string>
+    <string name="app_ops_read_cell_broadcasts">lire les diffusions cellulaires</string>
+    <string name="app_ops_mock_location">simuler votre position</string>
+    <string name="app_ops_read_external_storage">lire le stockage externe</string>
+    <string name="app_ops_write_external_storage">écrire sur le stockage externe</string>
+    <string name="app_ops_turn_on_screen">allumer l\'écran</string>
+    <string name="app_ops_get_accounts">obtenir les comptes de l\'appareil</string>
+    <string name="app_ops_wifi_change">changer l\'état du Wi-Fi</string>
+    <string name="app_ops_superuser_access">obtenir l\'accès super-utilisateur</string>
+
+    <!-- Privacy Guard -->
+    <string name="permlab_changePrivacyGuardState">activer ou désactiver la protection des données</string>
+    <string name="permdesc_changePrivacyGuardState">Permet à l\'application d\'en exécuter une autre avec la protection des données. Lorsqu\'une application est exécutée avec la protection des données, elle n\'aura pas accès aux données personnelles telles que les contacts, les journaux d\'appels ou les messages.</string>
+    <string name="privacy_guard_notification">Protection des données activée</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> ne sera pas en mesure d\'accéder aux données personnelles</string>
+    <string name="privacy_guard_dialog_title">Protection des données</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> voudrait <xliff:g id="op">%2$s</xliff:g>.</string>
+
 </resources>
