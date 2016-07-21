@@ -201,4 +201,7 @@
     <string name="qs_num_columns_title">Anzahl an Kachel pro Zeile</string>
     <string name="qs_num_columns_showing">%1$s Kachel pro Zeile</string>
 
+    <!-- Content description of the superuser tile -->
+    <string name="accessibility_su_active">Superuser Sitzung aktiv</string>
+
 </resources>

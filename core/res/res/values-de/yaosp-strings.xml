@@ -41,4 +41,83 @@
     <!-- Lockscreen Wallpaper Permission Description -->
     <string name="permdesc_setKeyguardWallpaper">Erlaubt einer App den Hintergrund des Sperrbildschirms zu ändern.</string>
 
+    <!-- Appops -->
+    <string name="permission_remember_choice">Merken</string>
+    <string name="permission">Berechtigungen</string>
+    <!-- App ops requests -->
+    <string name="app_ops_access_camera">Kamerazugriff</string>
+    <string name="app_ops_access_location">Standortzugriff</string>
+    <string name="app_ops_access_notifications">Benachrichtigungen lesen</string>
+    <string name="app_ops_activate_vpn">VPN aktivieren</string>
+    <string name="app_ops_auto_start">Beim Hochfahren starten</string>
+    <string name="app_ops_delete_call_log">Anrufliste löschen</string>
+    <string name="app_ops_delete_contacts">Kontakte löschen</string>
+    <string name="app_ops_delete_mms">MMS Nachrichten löschen</string>
+    <string name="app_ops_delete_sms">SMS Nachrichten löschen</string>
+    <string name="app_ops_draw_on_top">Overlay</string>
+    <string name="app_ops_get_usage_stats">Nutzerstatistiken</string>
+    <string name="app_ops_keep_device_awake">Gerät wach halten</string>
+    <string name="app_ops_make_phone_call">Telefonanruf</string>
+    <string name="app_ops_modify_calendar">Kalender bearbeiten</string>
+    <string name="app_ops_modify_call_log">Anrufiste bearbeiten</string>
+    <string name="app_ops_modify_clipboard">Zwischenablage bearbeiten</string>
+    <string name="app_ops_modify_contacts">Kontakte bearbeiten</string>
+    <string name="app_ops_modify_settings">Systemeinstelungen bearbeiten</string>
+    <string name="app_ops_mute_unmute_microphone">Mikrofon ein/ausschalten</string>
+    <string name="app_ops_play_audio">Audio abspielen</string>
+    <string name="app_ops_post_notification">Benachrichtigungen anzeigen</string>
+    <string name="app_ops_project_media">Medienprojekt</string>
+    <string name="app_ops_read_calendar">Kalender lesen</string>
+    <string name="app_ops_read_call_log">Anrufliste lesen</string>
+    <string name="app_ops_read_clipboard">Zwischenablage lesen</string>
+    <string name="app_ops_read_contacts">Kontakte lesen</string>
+    <string name="app_ops_read_mms">MMS Nachrichten lesen</string>
+    <string name="app_ops_read_sms">SMS Nachrichten lesen</string>
+    <string name="app_ops_receive_sms">SMS Nachrichten empfangen</string>
+    <string name="app_ops_record_audio">Audio aufnehmen</string>
+    <string name="app_ops_send_mms">MMS Nachrichten senden</string>
+    <string name="app_ops_send_sms">SMS Nachrichten senden</string>
+    <string name="app_ops_start_at_bootup">Nach dem Hochfahren starten</string>
+    <string name="app_ops_toast_window">Displaybenachrichtigungen</string>
+    <string name="app_ops_toggle_bluetooth">Bluetooth ein/ausschalten</string>
+    <string name="app_ops_toggle_mobile_data">Mobilfunk ein/ausschalte</string>
+    <string name="app_ops_toggle_nfc">NFC ein/ausschalten</string>
+    <string name="app_ops_toggle_wifi">Wlan ein/ausschalten</string>
+    <string name="app_ops_use_alarm_volume">Alarmlautstärke einstellen</string>
+    <string name="app_ops_use_audio_focus">Audio Fokus einstellen</string>
+    <string name="app_ops_use_bluetooth_volume">Bluetoothlautstärke einstellen</string>
+    <string name="app_ops_use_master_volume">Hauptlautstärke einstellen</string>
+    <string name="app_ops_use_media_buttons">Lautstärketasten benutzen</string>
+    <string name="app_ops_use_media_volume">Medienlautstärke benutzen</string>
+    <string name="app_ops_use_notification_volume">Benachrichtigungslautstärke benutzen</string>
+    <string name="app_ops_use_ring_volume">Klingeltonlautstärke benutzen</string>
+    <string name="app_ops_use_vibrate">Buttonvibration benutzen</string>
+    <string name="app_ops_use_voice_volume">Sprachlautstärke benutzen</string>
+    <string name="app_ops_write_mms">MMS Nachrichten schreiben</string>
+    <string name="app_ops_write_sms">SMS Nachrichten schreiben</string>
+    <string name="app_ops_use_fingerprint">Fingerprint-Sensor benutzen</string>
+    <string name="app_ops_add_voicemail">Sprachnachricht benutzen</string>
+    <string name="app_ops_read_phone_state">Telefonstatus lesen</string>
+    <string name="app_ops_scan_wifi">Wlan Netzwerke scannen</string>
+    <string name="app_ops_change_wallpaper">Wallpaper ändern</string>
+    <string name="app_ops_assist_structure">Hilfsstruktur verwenden</string>
+    <string name="app_ops_assist_screenshot">Screenshot erstellen</string>
+    <string name="app_ops_use_body_sensors">Body-Sensor benutzen</string>
+    <string name="app_ops_read_cell_broadcasts">Broadcast lesen</string>
+    <string name="app_ops_mock_location">Standort simulieren</string>
+    <string name="app_ops_read_external_storage">Externer Speicher lesen</string>
+    <string name="app_ops_write_external_storage">Externer Speicher schreiben</string>
+    <string name="app_ops_turn_on_screen">Bildschirm einschalten</string>
+    <string name="app_ops_get_accounts">Konten lesen</string>
+    <string name="app_ops_wifi_change">Wlan status ändern</string>
+    <string name="app_ops_superuser_access">Superuserrechte erhalten</string>
+
+    <!-- Privacy Guard -->
+    <string name="permlab_changePrivacyGuardState">Privatsphäre ein oder ausschalten</string>
+    <string name="permdesc_changePrivacyGuardState">Ermöglicht Privatsphäre für Apps einzustellen. Wenn eine App mit Privatsphäre abgesichert wurde, wird sie keinen Zugang zu personenbezogene Daten haben, wie Kontakte, Anruflisten oder Nachrichten.</string>
+    <string name="privacy_guard_notification">Privatsphäre aktiv</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> werden keine persönliche Daten abfragen können.</string>
+    <string name="privacy_guard_dialog_title">Privatsphäre</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> würde gerne <xliff:g id="op">%2$s</xliff:g>.</string>
+
 </resources>
