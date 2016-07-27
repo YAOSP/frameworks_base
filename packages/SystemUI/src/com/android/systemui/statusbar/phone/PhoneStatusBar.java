@@ -284,6 +284,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     BatteryController mBatteryController;
     private BatteryMeterView mBatteryView;
     private TextView mBatteryLevel;
+    private View mBatteryLevelSpacer;
     LocationControllerImpl mLocationController;
     NetworkControllerImpl mNetworkController;
     HotspotControllerImpl mHotspotController;
@@ -366,6 +367,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     private boolean mShowBatteryText;
     private boolean mShowBatteryTextCharging;
+    private boolean mShowBatteryTextSpacer;
     private boolean mBatteryIsCharging;
     private int mBatteryChargeLevel;
 
@@ -554,6 +556,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             loadShowBatteryTextSetting();
             updateBatteryLevelText();
             mBatteryLevel.setVisibility(mShowBatteryText ? View.VISIBLE : View.GONE);
+            mBatteryLevelSpacer.setVisibility(mShowBatteryTextSpacer ? View.VISIBLE : View.GONE);
         }
     }
 
@@ -568,16 +571,19 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 //meterMode = BatteryMeterMode.BATTERY_METER_GONE;
                 mShowBatteryText = false;
                 mShowBatteryTextCharging = false;
+                mShowBatteryTextSpacer = false;
                 break;
 
             case 6:
                 //meterMode = BatteryMeterMode.BATTERY_METER_TEXT;
                 mShowBatteryText = true;
                 mShowBatteryTextCharging = true;
+                mShowBatteryTextSpacer = false;
                 break;
 
             default:
                 mShowBatteryTextCharging = false;
+                mShowBatteryTextSpacer = mShowBatteryText;
                 break;
         }
     }
@@ -1058,6 +1064,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         mBatteryLevel = (TextView) mStatusBarView.findViewById(
                                                            R.id.battery_level_text);
+        mBatteryLevelSpacer = mStatusBarView.findViewById(R.id.battery_batterytext_spacer);
 
         // Other icons
         mLocationController = new LocationControllerImpl(mContext,
