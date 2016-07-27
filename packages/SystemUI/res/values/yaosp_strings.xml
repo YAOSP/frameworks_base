@@ -209,6 +209,10 @@
     <string name="qs_num_columns_title">Number of tiles per row</string>
     <string name="qs_num_columns_showing">%1$s tiles per row showing</string>
 
+    <!-- QS Tiles Substratum -->
+    <string name="quick_settings_substratum_label">Substratum</string>
+    <string name="accessibility_quick_settings_substratum">substratum.</string>
+
     <!-- Content description of the superuser tile -->
     <string name="accessibility_su_active">Superuser session active</string>
 
