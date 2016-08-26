@@ -3517,6 +3517,24 @@ public final class Settings {
                 "notification_light_pulse_custom_values";
 
         /**
+         * Change the number of columns displayed in the Settings dashboard
+         * @hide
+         */
+        public static final String DASHBOARD_COLUMNS = "dashboard_columns";
+
+        /**
+         * Whether to display dashboard tiles in a double line layout
+         * @hide
+         */
+        public static final String DASHBOARD_TILEVIEW_DOUBLE_LINES = "dashboard_tileview_double_lines";
+
+        /**
+         * Whether to display dashboard dividers
+         * @hide
+         */
+        public static final String DASHBOARD_TILEVIEW_DIVIDERS = "dashboard_tileview_dividers";
+
+        /**
          * Boolean value whether to link ringtone and notification volume
          * @hide
          */
