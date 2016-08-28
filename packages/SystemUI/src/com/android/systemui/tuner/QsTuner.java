@@ -261,6 +261,7 @@ public class QsTuner extends Fragment implements Callback {
         else if (spec.equals("sound")) return R.string.quick_settings_sound_label;
         else if (spec.equals("caffeine")) return R.string.quick_settings_caffeine_label;
         else if (spec.equals("substratum")) return R.string.quick_settings_substratum_label;
+        else if (spec.equals("adb_network")) return R.string.quick_settings_adb_network;
         return 0;
     }
 
@@ -542,6 +543,7 @@ public class QsTuner extends Fragment implements Callback {
             else if (mSpec.equals("sound")) return R.drawable.ic_qs_ringer_audible;
             else if (mSpec.equals("caffeine")) return R.drawable.ic_qs_caffeine_on;
             else if (mSpec.equals("substratum")) return R.drawable.ic_qs_substratum;
+            else if (mSpec.equals("adb_network")) return R.drawable.ic_qs_network_adb_on;
             return R.drawable.android;
         }
 
